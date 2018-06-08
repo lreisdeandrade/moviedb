@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -12,6 +13,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,11 +24,45 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Kotlin
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko:${anko_version}"
+
+    // MovieDB Service
+    implementation project(':moviedbservice')
+
+    // APPCompat
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    implementation "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+
+
+    //Google Architecture Components
+    implementation "android.arch.lifecycle:runtime:${lifecycleVersion}"
+    implementation "android.arch.lifecycle:extensions:${lifecycleVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+    kapt "android.arch.lifecycle:compiler:$rootProject.lifecycleVersion"
+
+    // RxJava and RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:${rx_java_version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    
+    //Timber
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    // Timezone
+    implementation "com.jakewharton.threetenabp:threetenabp:${timeZoneVersion}"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    kapt 'com.github.bumptech.glide:compiler:4.4.0'
+
+    // Dependencies for local unit tests
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+
+    // Espresso UI Testing dependencies.
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':moviedbservice')
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+
 }

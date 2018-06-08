@@ -1,11 +1,11 @@
 package br.com.leandro.moviedbservice
 
 
+enum class MoviedbApiEndpoint(private val endPointName: String, host: String) {
+    PROD("Production", "https://api.themoviedb.org/3/");
+//    DEVELOP("Develop", "http://www.fastshop.com.br/", "wcs/");
 
-enum class MoviedbApiEndpoint(private val endPointName: String, host: String, endpoint: String) {
-    PROD("Production", "https://hoadwcs006fst.fastshop.com.br/", "wcs/"),
-    DEVELOP("Production_Develop", "http://www.fastshop.com.br/", "wcs/");
-    val url: String = host.plus(endpoint)
+    val url: String = host
 
     override fun toString(): String {
         return endPointName

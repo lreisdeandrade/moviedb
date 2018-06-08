@@ -1,6 +1,8 @@
 package br.com.leandro.moviedbservice.movie
 
 import br.com.leandro.moviedbservice.MoviedbDataSource
+import br.com.leandro.moviedbservice.model.MovieByGenreResponse
+import br.com.leandro.moviedbservice.model.MovieDetail
 import io.reactivex.Single
 
 /**
@@ -8,7 +10,5 @@ import io.reactivex.Single
  */
 
 interface MovieDataSource : MoviedbDataSource {
-    fun getGenres()
-    fun getMoviesByGenre(genreId: Int)
-    fun getMovieDetail(movieId: Int)
+    fun getMovieDetail(movieId: Int): Single<MovieDetail>
 }

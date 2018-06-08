@@ -3,14 +3,44 @@
 buildscript {
     ext.kotlin_version = '1.2.41'
     repositories {
-        maven { url 'https://maven.google.com' }
-        jcenter()
         mavenCentral()
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
+        maven { url 'https://jitpack.io' }
         google()
+        jcenter()
     }
+
+    // Gradle Variables
+    // Define versions in a single place
+    ext {
+
+        //GOOGLE
+        appcompat_version = '27.0.2'
+        lifecycleVersion = '1.1.1'
+        constraintLayoutVersion = '1.1.1'
+        googleDesignAPIVersion = '27.1.1'
+        supportLibraryVersion = '27.1.1'
+
+        // Square Dependencies.
+        retrofitVersion = '2.3.0'
+        okhttpVersion = '3.9.0'
+
+        // Dagger 2
+        daggerCompilerVersion = '2.7'
+        daggerVersion = '2.7'
+        jsr250ApiVersion = '1.0'
+
+        timberVersion = '4.7.0'
+
+        timeZoneVersion = "1.1.0"
+
+        jodaTimeVersion = "2.9.5"
+
+        anko_version = '0.10.3'
+        rx_java_version = '2.1.14'
+        rx_android_version = '2.0.2'
+        retrofitVersion = '2.3.0'
+    }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -22,28 +52,11 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://maven.google.com' }
-        jcenter()
-        maven { url "https://jitpack.io" }
-        flatDir {
-            dir 'libs'
-        }
         google()
+        jcenter()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-// Gradle Variables
-// Define versions in a single place
-ext {
-
-    // Square Dependencies.
-    retrofitVersion = '2.3.0'
-    okhttpVersion = '3.6.0'
-
-    timberVersion = '4.7.0'
-
 }
