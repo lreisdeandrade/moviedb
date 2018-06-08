@@ -9,8 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-//internal const val BAZAAR_API_KEY_NAME = "passkey"
-//internal const val BAZAAR_API_KEY_VALUE = "cagyh5dFOaI9mzDknVONsxfKnFWWnaHyN3WsghKcM7PFY"
+internal const val API_KEY_NAME = "api_key"
+internal const val API_KEY_VALUE = "0d0ed06f1335ea981bf483412b8a9cc5"
+internal const val API_LANGUAGE_NAME = "language"
+internal const val API_LANGUAGE_VALUE = "pt-BR"
 
 object MoviedbModule {
     lateinit var retrofit: Retrofit private set
@@ -22,7 +24,8 @@ object MoviedbModule {
         builder.addInterceptor { chain ->
             val original = chain.request()
             val url = original.url().newBuilder()
-//                    .addQueryParameter(BAZAAR_API_KEY_NAME, BAZAAR_API_KEY_VALUE)
+                    .addQueryParameter(API_KEY_NAME, API_KEY_VALUE)
+                    .addQueryParameter(API_LANGUAGE_NAME, API_LANGUAGE_VALUE)
                     .build()
 
             val requestBuilder = original.newBuilder().url(url)
