@@ -8,5 +8,7 @@ import io.reactivex.Single
  */
 
 interface MovieDataSource : MoviedbDataSource {
-    fun productCheck(skus: ArrayList<String>): Single<ArrayList<Sku>>
+    fun getGenres()
+    fun getMoviesByGenre(genreId: Int)
+    fun getMovieDetail(movieId: Int)
 }
