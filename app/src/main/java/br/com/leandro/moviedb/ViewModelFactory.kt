@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.support.annotation.VisibleForTesting
 import br.com.leandro.moviedb.genre.GenreViewModel
+import br.com.leandro.moviedb.movie.MovieViewModel
 import br.com.leandro.moviedb.util.scheduler.SchedulerProvider
 
 
@@ -26,6 +27,10 @@ class ViewModelFactory private constructor(private val application: AppContext) 
                     isAssignableFrom(GenreViewModel::class.java) -> {
                         GenreViewModel(application,
                                 Injection.provideGenreRepository(), SchedulerProvider)
+                    }
+                    isAssignableFrom(MovieViewModel::class.java) -> {
+                        MovieViewModel(application,
+                                Injection.provideMovieRepository(), SchedulerProvider)
                     }
 
                     else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

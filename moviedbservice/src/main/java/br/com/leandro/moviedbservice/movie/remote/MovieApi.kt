@@ -10,7 +10,7 @@ import timber.log.Timber
 /**
  * Created by leandro on 08/06/2018
  */
-object MovieAPI : MovieDataSource {
+object MovieApi : MovieDataSource {
 
     private val movieService: MovieService
 

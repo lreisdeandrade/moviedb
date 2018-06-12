@@ -35,6 +35,8 @@ buildscript {
 
         jodaTimeVersion = "2.9.5"
 
+        circularProgressView = "1.2.0"
+
         anko_version = '0.10.3'
         rx_java_version = '2.1.14'
         rx_android_version = '2.0.2'

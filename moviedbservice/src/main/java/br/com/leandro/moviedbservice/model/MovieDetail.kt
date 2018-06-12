@@ -39,6 +39,7 @@ data class MovieDetail(val adult: Boolean,
                        val tagline: String,
                        val title: String,
                        val video: Boolean,
-                       val vote_average: Double,
+                       @SerializedName("voteAverage")
+                       val voteAverage: Double,
                        @SerializedName("vote_count")
                        val voteCount: Int)

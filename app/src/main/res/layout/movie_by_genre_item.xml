@@ -30,7 +30,7 @@
             android:maxLines="2"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
-            android:textSize="12sp"
+            android:textSize="14sp"
             tools:text="Title" />
 
     </LinearLayout>

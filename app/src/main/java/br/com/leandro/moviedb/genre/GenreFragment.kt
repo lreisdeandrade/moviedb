@@ -1,6 +1,7 @@
 package br.com.leandro.moviedb.genre
 
 import android.arch.lifecycle.Observer
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.leandro.moviedb.AppContext
 import br.com.leandro.moviedb.R
+import br.com.leandro.moviedb.movie.MovieActivity
 import br.com.leandro.moviedb.util.obtainViewModel
 import br.com.leandro.moviedb.util.requiredBundleNotFound
 import br.com.leandro.moviedbservice.model.Genre
@@ -89,7 +91,8 @@ class GenreFragment : Fragment() {
         moviesRecycler.isNestedScrollingEnabled = false
 
         moviesRecycler.adapter = MoviesByGenreAdapter(movieByGenreResponse.results, {
-            toast(it.title)
+
+            MovieActivity.createIntent(activity as Context, it.id)
         })
     }
 

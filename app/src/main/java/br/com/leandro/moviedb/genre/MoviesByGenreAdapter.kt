@@ -36,6 +36,7 @@ class MoviesByGenreAdapter(private val items: List<Movie>, val clickListener: (M
         fun bind(item: Movie, clickListener: (Movie) -> Unit) = with(itemView) {
             with(item) {
                 movieCoverView.loadUrl(posterUrl.plus(item.poster_path))
+                movieTitleView.text = item.original_title
 
                 itemView.setOnClickListener { clickListener(item) }
             }

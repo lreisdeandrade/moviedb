@@ -4,7 +4,6 @@ import br.com.leandro.moviedbservice.MoviedbModule
 import br.com.leandro.moviedbservice.genre.GenreDataSource
 import br.com.leandro.moviedbservice.model.GenreResponse
 import br.com.leandro.moviedbservice.model.MovieByGenreResponse
-import br.com.leandro.moviedbservice.movie.remote.MovieAPI
 import io.reactivex.Single
 import timber.log.Timber
 
