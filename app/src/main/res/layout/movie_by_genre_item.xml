@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemMovieView"
+    android:layout_width="130dp"
+    android:layout_height="200dp"
+    android:layout_marginStart="10dp">
+
+    <ImageView
+        android:id="@+id/movieCoverView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_movie_placeholder" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_gradient_black"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/movieTitleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            tools:text="Title" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
