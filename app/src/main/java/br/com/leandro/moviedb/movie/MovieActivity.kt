@@ -5,9 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.leandro.moviedb.R
-import br.com.leandro.moviedb.util.loadUrl
-import br.com.leandro.moviedb.util.obtainViewModel
-import br.com.leandro.moviedb.util.requiredBundleNotFound
 import br.com.leandro.moviedbservice.model.MovieDetail
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import org.jetbrains.anko.startActivity
@@ -16,6 +13,7 @@ import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CollapsingToolbarLayout
 import android.view.Menu
 import android.view.MenuItem
+import br.com.leandro.moviedb.util.*
 import kotlinx.android.synthetic.main.content_movie_detail.*
 
 /**
@@ -174,6 +172,26 @@ class MovieActivity : AppCompatActivity() {
 
             moviePosterView.loadUrl(posterUrl.plus(backdropPath))
             movieBackDropView.loadUrl(posterUrl.plus(posterPath))
+
+            credits.crew.each {
+                if (it.job == "Director") {
+                    movieDirector.text = it.name
+                    Control.BREAK
+                }
+                Control.CONTINUE
+            }
+
+            var genresName = ""
+            genres.forEach {
+                genresName += it.name.plus(" | ")
+            }
+            movieGenres.text = genresName.dropLast(2)
+
+            var castsName = ""
+            for (i in 0..6) {
+                castsName += (credits.cast[i].name).plus(", ")
+            }
+            movieCast.text = castsName
         }
     }
 

@@ -7,22 +7,20 @@
     android:layout_marginStart="10dp">
 
     <ImageView
-        android:id="@+id/moviePosterView"
+        android:id="@+id/movieCoverView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
         android:src="@drawable/img_movie_placeholder" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="@drawable/shape_gradient_black"
         android:orientation="vertical"
-        android:background="#79000000"
         android:padding="8dp">
 
         <TextView
@@ -34,7 +32,10 @@
             android:maxLines="2"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
+            android:textSize="13sp"
             tools:text="Title" />
+
     </LinearLayout>
+
+
 </FrameLayout>

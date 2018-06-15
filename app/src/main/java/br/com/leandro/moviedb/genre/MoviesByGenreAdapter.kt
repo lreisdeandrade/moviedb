@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.movie_by_genre_item.view.*
 
 private const val posterUrl = "http://image.tmdb.org/t/p/w185/"
 
-class MoviesByGenreAdapter(private val items: List<Movie>, val clickListener: (Movie) -> Unit) :
+class MoviesByGenreAdapter(private val items: List<Movie>, private val clickListener: (Movie) -> Unit) :
         RecyclerView.Adapter<MoviesByGenreAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -35,7 +35,7 @@ class MoviesByGenreAdapter(private val items: List<Movie>, val clickListener: (M
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Movie, clickListener: (Movie) -> Unit) = with(itemView) {
             with(item) {
-                moviePosterView.loadUrl(posterUrl.plus(item.poster_path))
+                movieCoverView.loadUrl(posterUrl.plus(item.poster_path))
                 movieTitleView.text = item.title
 
                 itemView.setOnClickListener { clickListener(item) }
