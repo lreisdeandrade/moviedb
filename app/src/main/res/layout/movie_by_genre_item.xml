@@ -7,7 +7,7 @@
     android:layout_marginStart="10dp">
 
     <ImageView
-        android:id="@+id/movieCoverView"
+        android:id="@+id/moviePosterView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:importantForAccessibility="no"

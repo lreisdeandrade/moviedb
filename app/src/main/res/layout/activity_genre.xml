@@ -18,7 +18,7 @@
             app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
             <ScrollView
-                android:id="@+id/garae_scroll"
+                android:id="@+id/genre_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

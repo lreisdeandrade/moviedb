@@ -41,5 +41,4 @@ internal class MovieViewModel(application: Application, private val movieDataSou
                     Timber.e(it, "loadGenres: %s", it.message)
                 })
     }
-
 }

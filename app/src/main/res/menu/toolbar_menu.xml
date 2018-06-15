@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.journaldev.collapsingtoolbarlayout.ScrollingActivity">
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_star_white_24dp"
+        android:orderInCategory="200"
+        android:title="info"
+        app:showAsAction="ifRoom" />
+
+</menu>
