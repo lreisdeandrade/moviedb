@@ -35,7 +35,7 @@ class MoviesByGenreAdapter(private val items: List<Movie>, private val clickList
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Movie, clickListener: (Movie) -> Unit) = with(itemView) {
             with(item) {
-                movieCoverView.loadUrl(posterUrl.plus(item.poster_path))
+                moviePosterView.loadUrl(posterUrl.plus(item.poster_path))
                 movieTitleView.text = item.title
 
                 itemView.setOnClickListener { clickListener(item) }

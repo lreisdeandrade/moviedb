@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp">
 
     <LinearLayout
         android:id="@+id/lnGenreView"
@@ -25,9 +26,10 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:textAllCaps="true"
-            android:textColor="@color/gray_dark"
+            android:textColor="@android:color/black"
             android:background="@drawable/shape_textview_rounded"
             android:fontFamily="@font/abril_fatface"
+            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="17sp" />
 
