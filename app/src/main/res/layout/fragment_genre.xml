@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="6dp">
 
     <LinearLayout
         android:id="@+id/lnGenreView"
@@ -18,11 +19,17 @@
             android:layout_marginBottom="6dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/shape_textview_rounded"
             android:ellipsize="end"
+            android:fontFamily="@font/abril_fatface"
+            android:paddingBottom="2dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
             android:singleLine="true"
             android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/white"
+            android:textColor="@color/gray_dark"
             android:textSize="17sp" />
 
         <android.support.v7.widget.RecyclerView

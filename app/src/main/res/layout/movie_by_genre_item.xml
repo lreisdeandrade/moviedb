@@ -15,15 +15,14 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/shape_gradient_black" />
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/shape_gradient_black"
         android:orientation="vertical"
+        android:background="#79000000"
         android:padding="8dp">
 
         <TextView
@@ -37,8 +36,5 @@
             android:textColor="@android:color/white"
             android:textSize="14sp"
             tools:text="Title" />
-
     </LinearLayout>
-
-
 </FrameLayout>

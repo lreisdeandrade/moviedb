@@ -11,6 +11,7 @@
     <color name="loading_color2">#ffcf00</color>
     <color name="loading_color3">#b52429</color>
     <color name="loading_color4">#52c3bd</color>
+    <color name="gray_dark">#191919</color>
 
     <integer-array name="loading_colors">
         <item>@color/loading_color1</item>
@@ -18,5 +19,9 @@
         <item>@color/loading_color3</item>
         <item>@color/loading_color4</item>
     </integer-array>
+
+
+    <color name="blue">#02A6F0</color>
+
 
 </resources>
