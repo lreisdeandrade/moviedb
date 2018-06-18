@@ -5,9 +5,7 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import br.com.leandro.moviedb.R
-import br.com.leandro.moviedb.util.addFragmentToActivity
-import br.com.leandro.moviedb.util.obtainViewModel
-import br.com.leandro.moviedb.util.replaceFragmentInActivity
+import br.com.leandro.moviedb.util.*
 import br.com.leandro.moviedbservice.model.Genre
 import kotlinx.android.synthetic.main.activity_genre.*
 import org.jetbrains.anko.startActivity
@@ -58,10 +56,9 @@ class GenreActivity : AppCompatActivity() {
             })
 
             isLoadingLive.observe(this@GenreActivity, Observer {
-                it?.let {
-
-                } ?: run {
-
+                when (it) {
+                    true -> genresLoadingView.visible()
+                    false -> genresLoadingView.gone()
                 }
             })
 
@@ -73,7 +70,6 @@ class GenreActivity : AppCompatActivity() {
             })
 
             viewModel.loadGenres()
-
         }
     }
 

@@ -132,17 +132,20 @@ class MovieActivity : AppCompatActivity() {
         viewModel.apply {
             hasErrorLive.observe(this@MovieActivity, Observer {
                 when (it) {
-                    true -> {
-                        showError()
-                    }
+                    true -> showError()
                 }
             })
 
             isLoadingLive.observe(this@MovieActivity, Observer {
-                it?.let {
-
-                } ?: run {
-
+                when (it) {
+                    true -> {
+                        movieDetailLoadingView.visible()
+                        fabMovie.gone()
+                    }
+                    false -> {
+                        movieDetailLoadingView.gone()
+                        fabMovie.visible()
+                    }
                 }
             })
 

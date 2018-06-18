@@ -11,6 +11,17 @@
         android:layout_height="match_parent"
         android:background="@color/grey_dark">
 
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+            android:id="@+id/genresLoadingView"
+            android:layout_width="@dimen/circular_progress_bar_size"
+            android:layout_height="@dimen/circular_progress_bar_size"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:indeterminate="true"
+            android:padding="@dimen/spacing_large"
+            android:visibility="gone"
+            app:cpb_colors="@array/loading_colors"
+            tools:visibility="visible" />
+
         <ScrollView
             android:id="@+id/genre_scroll"
             android:layout_width="match_parent"
