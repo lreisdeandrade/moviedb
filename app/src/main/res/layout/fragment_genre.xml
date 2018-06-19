@@ -19,24 +19,24 @@
             android:layout_marginBottom="6dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
+            android:background="@drawable/shape_rounded_white"
             android:ellipsize="end"
+            android:fontFamily="@font/abril_fatface"
+            android:paddingBottom="2dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
             android:singleLine="true"
             android:textAllCaps="true"
-            android:textColor="@color/grey_dark"
-            android:background="@drawable/shape_textview_rounded"
-            android:fontFamily="@font/abril_fatface"
-            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="17sp" />
+            android:textColor="@color/grey_dark"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/moviesRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -32,12 +32,14 @@ dependencies {
     // MovieDB Service
     implementation project(':moviedbservice')
 
+    //GsonConverter
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
     // APPCompat
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     implementation "com.android.support:recyclerview-v7:${supportLibraryVersion}"
     implementation "com.android.support:design:${supportLibraryVersion}"
-
 
     //Google Architecture Components
     implementation "android.arch.lifecycle:runtime:${lifecycleVersion}"
@@ -48,7 +50,7 @@ dependencies {
     // RxJava and RxAndroid
     implementation "io.reactivex.rxjava2:rxjava:${rx_java_version}"
     implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
-    
+
     //Timber
     implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
 
@@ -62,12 +64,33 @@ dependencies {
     //Circular Progress View
     implementation "com.github.castorflex.smoothprogressbar:library-circular:${circularProgressView}"
 
-
-    // Dependencies for local unit tests
-    testImplementation 'junit:junit:4.12'
+    //******************************** Test Dependencies ***********************************//
+    androidTestImplementation 'com.android.support:support-annotations:27.1.1'
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.ext.rulesVersion"
 
     // Espresso UI Testing dependencies.
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    // Espresso
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.ext.espressoVersion"
+
+    // Junit 4
+    //Dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+
+    // Mockito
+    testImplementation "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+    testImplementation "android.arch.core:core-testing:$arch_comp_version"
+
+    // Google
+    testImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    testImplementation "org.testng:testng:$rootProject.ext.testngVersion"
 
 }

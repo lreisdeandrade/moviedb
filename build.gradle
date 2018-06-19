@@ -12,14 +12,13 @@ buildscript {
     // Gradle Variables
     // Define versions in a single place
     ext {
-
         //GOOGLE
         appcompat_version = '27.1.1'
         lifecycleVersion = '1.1.1'
-        constraintLayoutVersion = '1.1.1'
+        constraintLayoutVersion = '1.1.2'
         supportLibraryVersion = '27.1.1'
 
-        // Square Dependencies.
+        //Square
         retrofitVersion = '2.3.0'
         okhttpVersion = '3.9.0'
 
@@ -33,20 +32,32 @@ buildscript {
 
         timberVersion = '4.7.0'
 
+        //Calendar and Time
         timeZoneVersion = "1.1.0"
-
         jodaTimeVersion = "2.9.5"
 
-        circularProgressView = "1.2.0"
+        circularProgressView = "1.3.0"
 
         anko_version = '0.10.3'
         rx_java_version = '2.1.14'
         rx_android_version = '2.0.2'
-        retrofitVersion = '2.3.0'
+
+        //Tests
+        junitVersion = '4.12'
+        mockitoVersion = '2.7.22'
+        powerMockito = '1.6.2'
+        hamcrestVersion = '1.3'
+        runnerVersion = '1.0.0'
+        rulesVersion = '1.0.0'
+        espressoVersion = '3.0.2'
+        testngVersion = '6.9.6'
+
+        arch_comp_version = '1.1.1'
+
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong

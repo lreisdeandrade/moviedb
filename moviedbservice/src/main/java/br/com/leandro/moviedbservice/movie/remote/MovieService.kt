@@ -1,9 +1,7 @@
 package br.com.leandro.moviedbservice.movie.remote
 
-import br.com.leandro.moviedbservice.model.MovieByGenreResponse
 import br.com.leandro.moviedbservice.model.MovieDetail
 import io.reactivex.Single
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 

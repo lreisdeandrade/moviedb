@@ -26,7 +26,6 @@ internal class MovieViewModel(application: Application, private val movieDataSou
 
     fun loadMovieDetail(movieId : Int) {
         isLoadingLive.postValue(true)
-        hasErrorLive.postValue(false)
 
         movieDataSource.getMovieDetail(movieId)
                 .subscribeOn(scheduler.io())
