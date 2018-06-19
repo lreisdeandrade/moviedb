@@ -35,8 +35,6 @@ class MovieViewModelTest {
     private lateinit var context: Application
     @Mock
     private lateinit var movieRepository: MovieRepository
-//    @Mock
-//    private lateinit var customerRealmDataSource: CustomerRealmDataSource
 
     private lateinit var movieViewModel: MovieViewModel
 
@@ -54,7 +52,6 @@ class MovieViewModelTest {
 
         setupContext()
 
-        // We initialise the tasks to 3, with one active and two completed
         setupViewModelMocks()
         setupMovieDetailMock()
 

@@ -28,7 +28,6 @@ internal class GenreViewModel(application: Application, private val genreDataSou
 
     fun loadGenres() {
         isLoadingLive.postValue(true)
-        hasErrorLive.postValue(false)
 
         genreDataSource.getGenres()
                 .subscribeOn(scheduler.io())
@@ -46,7 +45,6 @@ internal class GenreViewModel(application: Application, private val genreDataSou
 
     fun loadMoviesByGenre(genreId: Int) {
         isLoadingLive.postValue(true)
-        hasErrorLive.postValue(false)
 
         genreDataSource.getMoviesByGenre(genreId)
                 .subscribeOn(scheduler.io())
