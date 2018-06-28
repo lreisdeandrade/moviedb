@@ -21,14 +21,13 @@ import kotlinx.android.synthetic.main.content_movie_detail.*
  */
 
 private const val EXTRA_MOVIE_ID = "EXTRA_MOVIE_ID"
-private const val posterUrl = "http://image.tmdb.org/t/p/original/"
+private const val DIRECTOR_QUERY = "Diretor"
+private const val POSTER_URL = "http://image.tmdb.org/t/p/original/"
 
 class MovieActivity : AppCompatActivity() {
 
-
     private lateinit var menu: Menu
     private lateinit var collapsingToolbar: CollapsingToolbarLayout
-
 
     private var defaultMovieId: Int = -1
     private var movieId: Int = defaultMovieId
@@ -52,7 +51,7 @@ class MovieActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu this adds items to the action bar if it is present.
         this.menu = menu
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         hideOption(R.id.action_settings)
@@ -61,11 +60,7 @@ class MovieActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
-
 
         return if (id == R.id.action_settings) {
             true
@@ -92,7 +87,6 @@ class MovieActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         collapsingToolbar = findViewById(R.id.toolbar_layout)
-
 
         appBar.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
             internal var isShow = false
@@ -154,52 +148,61 @@ class MovieActivity : AppCompatActivity() {
                     movieDetail = it
                     setupMovieInfo()
                 } ?: run {
-
+                    //TODO HANDLE ERROR REQUEST
                 }
             })
 
             viewModel.loadMovieDetail(movieId)
-
         }
     }
 
-
     private fun setupMovieInfo() {
-
         with(movieDetail) {
             movieYear.text = releaseDate.substring(0, 4)
-            movieTimer.text = runtime.toString().plus(" min")
+            movieTimer.text = runtime.toString().plus(getString(R.string.min_label))
             movieRating.text = voteAverage.toString()
             movieSinopseView.text = overview
             collapsingToolbar.title = title
 
-            moviePosterView.loadUrl(posterUrl.plus(backdropPath))
-            movieBackDropView.loadUrl(posterUrl.plus(posterPath))
+            movieGenres.text = formatGenresName().dropLast(2)
+            movieDirector.text = findDirectorsName()
+            movieCast.text = formatCastNames()
 
-            credits.crew.each {
-                if (it.job == "Director") {
-                    movieDirector.text = it.name
-                    Control.BREAK
-                }
-                Control.CONTINUE
-            }
-
-            var genresName = ""
-            genres.forEach {
-                genresName += it.name.plus(" | ")
-            }
-            movieGenres.text = genresName.dropLast(2)
-
-            var castsName = ""
-            for (i in 0..6) {
-                castsName += (credits.cast[i].name).plus(", ")
-            }
-            movieCast.text = castsName
+            moviePosterView.loadUrl(POSTER_URL.plus(backdropPath))
+            movieBackDropView.loadUrl(POSTER_URL.plus(posterPath))
         }
     }
 
-    private fun showError() {
+    private fun formatGenresName(): String {
+        var genresName = ""
+        movieDetail.genres.forEach {
+            genresName += it.name.plus(" | ")
+        }
+        return genresName
+    }
 
-        Timber.d("Erro carregar detalhe do filme")
+    private fun findDirectorsName(): String {
+        var directorName = ""
+        movieDetail.credits.crew.each {
+            if (it.job == DIRECTOR_QUERY) {
+                directorName = it.name
+                Control.BREAK
+            }
+            Control.CONTINUE
+        }
+        return directorName
+    }
+
+    private fun formatCastNames(): String {
+        var castsName = ""
+        //Display only the 5 firsts actors ( Implement castDetailActivity ? )
+        for (i in 0..4) {
+            castsName += (movieDetail.credits.cast[i].name).plus(getString(R.string.comma))
+        }
+        return castsName
+    }
+
+    private fun showError() {
+        Timber.d("Erro ao carregar detalhe do filme")
     }
 }

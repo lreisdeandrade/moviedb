@@ -57,12 +57,15 @@
         android:id="@+id/movieDetailLoadingView"
         layout="@layout/loading_view" />
 
-    <android.support.design.widget.FloatingActionButton
+     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_star_yellow_24dp"
+        android:src="@drawable/ic_play_movie_24dp"
+        android:scaleType="fitXY"
+        app:borderWidth="0dp"
+        app:useCompatPadding="true"
         app:backgroundTint="@color/colorPrimaryDark"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end" />
