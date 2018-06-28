@@ -10,7 +10,7 @@ import io.reactivex.Single
 
 class MovieRepository(private val movieDataSource: MovieDataSource) : MovieDataSource {
 
-    override fun getMovieDetail(movieId: Int): Single<MovieDetail> {
+    override fun getMovieDetail(movieId: Long): Single<MovieDetail> {
         return movieDataSource.getMovieDetail(movieId)
     }
 }

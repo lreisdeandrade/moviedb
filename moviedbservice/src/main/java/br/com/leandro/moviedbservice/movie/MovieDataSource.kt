@@ -10,5 +10,5 @@ import io.reactivex.Single
  */
 
 interface MovieDataSource : MoviedbDataSource {
-    fun getMovieDetail(movieId: Int): Single<MovieDetail>
+    fun getMovieDetail(movieId: Long): Single<MovieDetail>
 }

@@ -29,14 +29,14 @@ class MovieActivity : AppCompatActivity() {
     private lateinit var menu: Menu
     private lateinit var collapsingToolbar: CollapsingToolbarLayout
 
-    private var defaultMovieId: Int = -1
-    private var movieId: Int = defaultMovieId
+    private var defaultMovieId: Long = -1
+    private var movieId: Long = defaultMovieId
     private lateinit var viewModel: MovieViewModel
     private lateinit var movieDetail: MovieDetail
 
     companion object {
         @JvmStatic
-        fun createIntent(context: Context, movieId: Int) {
+        fun createIntent(context: Context, movieId: Long) {
             context.startActivity<MovieActivity>(
                     EXTRA_MOVIE_ID to movieId)
         }
@@ -73,7 +73,7 @@ class MovieActivity : AppCompatActivity() {
 
     private fun initData() {
         with(intent) {
-            getIntExtra(EXTRA_MOVIE_ID, defaultMovieId).let {
+            getLongExtra(EXTRA_MOVIE_ID, defaultMovieId).let {
                 when (it != defaultMovieId) {
                     true -> movieId = it
                     false -> requiredBundleNotFound(EXTRA_MOVIE_ID)

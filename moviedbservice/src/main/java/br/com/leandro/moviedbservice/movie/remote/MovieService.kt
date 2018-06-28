@@ -12,5 +12,5 @@ import retrofit2.http.Path
 internal interface MovieService {
 
     @GET("movie/{movie_id}?&append_to_response=credits")
-    fun getMovieDetail(@Path("movie_id") movieId: Int): Single<MovieDetail>
+    fun getMovieDetail(@Path("movie_id") movieId: Long): Single<MovieDetail>
 }

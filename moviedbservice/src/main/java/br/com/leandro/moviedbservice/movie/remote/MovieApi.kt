@@ -21,7 +21,7 @@ object MovieApi : MovieDataSource {
 
 
 
-    override fun getMovieDetail(movieId: Int): Single<MovieDetail> {
+    override fun getMovieDetail(movieId: Long): Single<MovieDetail> {
         return movieService.getMovieDetail(movieId)
                 .doOnError { Timber.e(it, "getMovieDetail: %s", it.message) }
     }

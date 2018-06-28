@@ -24,7 +24,7 @@ internal class MovieViewModel(application: Application, private val movieDataSou
         //UNUSED
     }
 
-    fun loadMovieDetail(movieId : Int) {
+    fun loadMovieDetail(movieId : Long) {
         isLoadingLive.postValue(true)
 
         movieDataSource.getMovieDetail(movieId)

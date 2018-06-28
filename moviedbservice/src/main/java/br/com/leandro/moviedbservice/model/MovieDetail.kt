@@ -14,7 +14,7 @@ data class MovieDetail(val adult: Boolean,
                        val budget: Int,
                        val genres: List<Genre>,
                        val homepage: String,
-                       val id: Int,
+                       val id: Long,
                        @SerializedName("imdb_id")
                        val imdbId: String,
                        @SerializedName("original_language")
