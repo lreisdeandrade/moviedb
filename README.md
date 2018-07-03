@@ -1,6 +1,6 @@
 # The MoviesDB
 
-### A demonstration of MVVM pattern using the trending libraries of the android world.
+### A demonstration of MVVM pattern using some Architecture Components like ViewModel, LiveData and trending libraries of the android world.
  
 App is based on the [Google TODO MVVM-LIVE pattern](https://github.com/googlesamples/android-architecture/tree/todo-mvvm-live-kotlin), this pattern was choosed to make the business logic easily testable.
 - If you have any doubts or to get the lastest build on fabric you can email me(<lyra.gibran@gmail.com>).
