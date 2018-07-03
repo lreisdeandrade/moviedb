@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.content_movie_detail.*
  */
 
 private const val EXTRA_MOVIE_ID = "EXTRA_MOVIE_ID"
-private const val DIRECTOR_QUERY = "Diretor"
+private const val DIRECTOR_QUERY = "Director"
 private const val POSTER_URL = "http://image.tmdb.org/t/p/original/"
 
 class MovieActivity : AppCompatActivity() {
@@ -106,6 +106,10 @@ class MovieActivity : AppCompatActivity() {
                 }
             }
         })
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun hideOption(id: Int) {
@@ -158,6 +162,10 @@ class MovieActivity : AppCompatActivity() {
 
     private fun setupMovieInfo() {
         with(movieDetail) {
+
+            moviePosterView.loadUrl(POSTER_URL.plus(backdropPath))
+            movieBackDropView.loadUrl(POSTER_URL.plus(posterPath))
+
             movieYear.text = releaseDate.substring(0, 4)
             movieTimer.text = runtime.toString().plus(getString(R.string.min_label))
             movieRating.text = voteAverage.toString()
@@ -168,8 +176,6 @@ class MovieActivity : AppCompatActivity() {
             movieDirector.text = findDirectorsName()
             movieCast.text = formatCastNames()
 
-            moviePosterView.loadUrl(POSTER_URL.plus(backdropPath))
-            movieBackDropView.loadUrl(POSTER_URL.plus(posterPath))
         }
     }
 

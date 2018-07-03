@@ -30,6 +30,9 @@ buildscript {
         // Glide
         glideVersion = '4.7.1'
 
+        // Material Drawer
+        materialDrawerVersion = "6.0.8"
+
         timberVersion = '4.7.0'
 
         //Calendar and Time

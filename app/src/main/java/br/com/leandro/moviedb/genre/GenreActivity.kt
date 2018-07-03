@@ -4,12 +4,18 @@ import android.arch.lifecycle.Observer
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import br.com.leandro.moviedb.R
 import br.com.leandro.moviedb.util.*
 import br.com.leandro.moviedbservice.model.Genre
+import com.mikepenz.materialdrawer.AccountHeaderBuilder
+import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import kotlinx.android.synthetic.main.activity_genre.*
 import org.jetbrains.anko.startActivity
 import timber.log.Timber
+import android.content.Intent
+import android.net.Uri
 
 class GenreActivity : AppCompatActivity() {
 
@@ -41,6 +47,38 @@ class GenreActivity : AppCompatActivity() {
 
     private fun initViews() {
         setContentView(R.layout.activity_genre)
+
+        createDrawer()
+    }
+
+    private fun createDrawer() {
+        val headerResult = AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .addProfiles(
+                        ProfileDrawerItem().withName("Leandro Andrade")
+                                .withEmail("lreisdeandrade@gmail.com")
+                                .withIcon(ContextCompat.getDrawable(this, R.drawable.profile)))
+
+                .withOnAccountHeaderListener({ view, profile, currentProfile ->
+                    val url = "https://github.com/lreisdeandrade"
+                    val i = Intent(Intent.ACTION_VIEW)
+                    i.data = Uri.parse(url)
+                    startActivity(i)
+
+                    false
+                })
+                .build()
+
+        toolbar.title = "The MoviesDB"
+        DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withSliderBackgroundColor(ContextCompat.getColor(this, R.color.grey_dark))
+                .withActionBarDrawerToggle(true)
+                .withAccountHeader(headerResult)
+                .withActionBarDrawerToggleAnimated(true)
+                .build()
     }
 
     private fun initViewModel() {
