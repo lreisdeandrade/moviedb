@@ -27,7 +27,7 @@ App is based on the [Google TODO MVVM pattern](https://github.com/googlesamples/
 
 ## Some Notes
 
-- I created a exclusive module exclusively to demonstrate a way to let the service be tottaly decoupled from the app. That helps when the service is the same in multiple front ends.
+- I created a separated module exclusively to demonstrate a way to let the service be tottaly decoupled from the app. That helps when the service is the same in multiple front ends.
 - Made one unit test test to show how with this architecture we make things easier to test.
 
 ### Contact
