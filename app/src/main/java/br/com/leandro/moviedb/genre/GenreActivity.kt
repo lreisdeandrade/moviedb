@@ -19,7 +19,6 @@ import android.net.Uri
 
 class GenreActivity : AppCompatActivity() {
 
-    private lateinit var genresList: List<Genre>
     private lateinit var viewModel: GenreViewModel
 
     companion object {
@@ -86,24 +85,20 @@ class GenreActivity : AppCompatActivity() {
 
         viewModel.apply {
             hasErrorLive.observe(this@GenreActivity, Observer {
-                when (it) {
-                    true -> {
-                        showError()
-                    }
-                }
+                if (it) showError()
             })
 
             isLoadingLive.observe(this@GenreActivity, Observer {
-                when (it) {
-                    true -> genresLoadingView.visible()
-                    false -> genresLoadingView.gone()
+                if (it) {
+                    genresLoadingView.visible()
+                } else {
+                    genresLoadingView.gone()
                 }
             })
 
             genresLive.observe(this@GenreActivity, Observer { genreReponse ->
                 genreReponse?.let {
-                    genresList = it.genres
-                    setupContainerGenre()
+                    setupContainerGenre(it.genres)
                 }
             })
 
@@ -111,7 +106,7 @@ class GenreActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupContainerGenre() {
+    private fun setupContainerGenre(genresList: List<Genre>) {
         for (item: Genre in genresList) {
             addFragmentToActivity(GenreFragment.newInstance(item), R.id.genreView)
         }
