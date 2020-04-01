@@ -85,14 +85,18 @@ class GenreActivity : AppCompatActivity() {
 
         viewModel.apply {
             hasErrorLive.observe(this@GenreActivity, Observer {
-                if (it) showError()
+                it?.let {
+                    if (it) showError()
+                }
             })
 
             isLoadingLive.observe(this@GenreActivity, Observer {
-                if (it) {
-                    genresLoadingView.visible()
-                } else {
-                    genresLoadingView.gone()
+                it?.let {
+                    if(it){
+                        genresLoadingView.visible()
+                    }else{
+                        genresLoadingView.gone()
+                    }
                 }
             })
 
