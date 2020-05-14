@@ -1,6 +1,6 @@
-# Movies-DB
+# MarvelApp
 
-### A demonstration of MVVM pattern using some Architecture Components like ViewModel and LiveData with the trending libraries of the android world.
+### A demonstration of MVVM pattern using some Architecture Components like ViewModel, LiveData and Room with the trending libraries of the android world.
 
 App is based on the [Google TODO MVVM pattern](https://github.com/googlesamples/android-architecture/tree/todo-mvvm-live/), this pattern was choosed to make the business logic easily testable.
 - If you have any doubts or to get the latest build you can email me(<lreisdeandrade@gmail.com>).
